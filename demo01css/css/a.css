@@ -1,0 +1,16 @@
+@import url(./b.css);
+body {
+    color: #0c0;
+    /* font-family: sans-serif; */
+}
+#root {
+    color: #999;
+}
+
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+

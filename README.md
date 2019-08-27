@@ -8,3 +8,5 @@
 #CSS揭秘                    http://www.ituring.com.cn/book/1695
 #CSS 2.1 中文 spec          http://cndevdocs.com/
 #Magic of CSS 免费在线书     https://adamschwartz.co/magic-of-css/
+
+#默认font-size:16px; body{margin:8px} head{display:none}
