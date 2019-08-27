@@ -13,4 +13,106 @@ body {
     clear: both;
 }
 
+div.sanjiao {
+    border: 10px solid red;
+    width: 0;
+    height: 0;
+    border-top-color: black;
+    border-right-color: blue;
+    border-left-color: green;
+}
+div.sanjiaoA {
+    border: 10px solid red;
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+div.sanjiaoB {
+    border: 10px solid transparent;
+    width: 0;
+    height: 0;
+    border-top-color: black;
+    border-right-color: blue;
+    border-left-color: green;
+    border-top-width: 0px;
+    border-right-width: 0px;
+}
 
+
+#yin-yang {
+    width: 96px;
+    box-sizing: content-box;
+    height: 48px;
+    background: #eee;
+    border-color: red;
+    border-style: solid;
+    border-width: 2px 2px 50px 2px;
+    border-radius: 100%;
+    position: relative;
+  }
+  #yin-yang:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #eee;
+    border: 18px solid red;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+  }
+  #yin-yang:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: red;
+    border: 18px solid #eee;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+  }
+
+  #coyp {
+      height: 48px;
+      width: 98px;
+      background: #fff;
+      border-radius: 100%;
+      border: 2px solid black;
+      border-bottom-width: 50px;
+      position: relative;
+      animation: slidein 2s linear 1s infinite;
+                /* 动画名、延时、线性执行、持续时间、执行次数 */
+  }
+
+  @keyframes slidein {
+    from {  transform: rotate(0deg); }
+    to   {  transform: rotate(360deg); }
+  }
+  
+  #coyp::before {
+      content: '';
+      width: 13px;
+      height: 13px;
+      border: 18px solid #fff;
+      background: black;
+      border-radius: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+  }
+  #coyp::after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    border: 18px solid black;
+    background: #fff;
+    border-radius: 100%;
+    position: absolute;
+    right: 50%;
+    bottom: -50%;
+}
