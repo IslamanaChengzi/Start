@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: green;
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <canvas id="canvas" width=300 height=300 ></canvas>
+
+</body>
+<script>
+
+    function CanvasStart(){
+
+        var canvasYY = document.getElementById('canvas');
+        var context = canvasYY.getContext('2d');
+
+        // 描边和填充有先后之分 
+        context.strokeStyle = 'yellow';
+        // Rect 方形的缩写  strokeRect 描边
+        context.strokeRect(10,10,100,100);
+
+        context.fillStyle = 'red';
+        // Rect 方形的缩写  fillRect 填充
+        context.fillRect(10,10,100,100);
+
+        //  清除指定区域
+        context.clearRect(50,50,10,10);
+
+        context.fillStyle = 'black';
+        // 画一个三角形
+        context.beginPath();
+        context.moveTo(240,240);
+        context.lineWidth = 5;
+        context.lineTo(300,240);
+        context.lineTo(300,300);
+        // context.fill();
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.arc(150, 150, 20, Math.PI, Math.PI*2 );
+        // 圆心位置，半径，起止角度, 
+        // context.fill();填充 注：只填充去掉三角的部分
+        context.stroke()
+
+    }
+
+    // CanvasStart();
+
+    var canvasYY = document.getElementById('canvas');
+    var context = canvasYY.getContext('2d');
+
+    // drawCircle(40,40,10);
+
+    function drawCircle(x,y,cadius){
+        context.beginPath();
+        context.fillStyle = 'red';
+        context.arc(x,y,cadius,0,Math.PI*2);
+        context.fill();
+    }
+
+    var painting = false;
+    var lastPoint = {x:undefined,y:undefined};
+    canvasYY.onmousedown = function(e){
+        painting = true;
+        var x = e.clientX;
+        var y = e.clientY;
+        lastPoint={x,y}
+        drawCircle(x,y,5);
+    }
+    canvasYY.onmousemove = function(e){
+        if(painting){
+            var x = e.clientX;
+            var y = e.clientY;
+            var newPoint = {x,y};
+            drawCircle(x,y,5);
+            drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y);
+            
+            // 上一个点链接下一个点
+            lastPoint = newPoint;
+
+        } else {
+
+        }
+      
+    }
+    canvasYY.onmouseup = function(e){
+        painting = false;
+    }
+
+    function drawLine(x1,y1,x2,y2){
+        context.beginPath();
+        context.strokeStyle = 'red';
+        context.moveTo(x1,y1);
+        context.lineWidth = 10;
+        context.lineTo(x2,y2);
+        context.stroke();
+        context.closePath();
+    }
+    
+
+</script>
+</html>

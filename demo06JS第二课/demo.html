@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #canvas {
+            height: 100vh;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas">
+
+    </div>
+    
+</body>
+
+    <script>
+
+        var div = document.getElementById('canvas')
+        div.style = "position:relative;"
+
+        var painting = false;
+
+        div.onmousedown = function(e){
+            if( e.button == 0 ){
+                painting = true;
+                console.log(e.button); // 0 左键
+                var x = e.clientX;
+                var y = e.clientY;
+                var divA = document.createElement('div');
+                divA.style = "width:6px;height:6px;"+
+                "background:black;border-radius:3px;"+
+                "position:absolute;top:"+(y-3)+"px;left:"+(x-3)+"px;"
+                div.appendChild(divA);
+            }
+        }
+
+        div.onmousemove = function(e){
+            if( painting ){
+                var x = e.clientX;
+                var y = e.clientY;
+                var divA = document.createElement('div');
+                divA.style = "width:6px;height:6px;"+
+                "background:black;border-radius:3px;"+
+                "position:absolute;top:"+(y-3)+"px;left:"+(x-3)+"px;"
+                div.appendChild(divA);
+            } else {
+
+            }
+        }
+
+        div.onmouseup = function(){
+            painting = false
+        }
+
+    </script>
+</html>
