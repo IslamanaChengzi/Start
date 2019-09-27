@@ -26,7 +26,7 @@ while(index < arrayStr["length"] ){
     }
 }
 
-console.log( arrayHash );
+console.log( arrayHash );  // 哈希去重
 
 console.log( arrayHash[-3] );
 
@@ -41,7 +41,7 @@ while(index2 < arrayStr["length"] ){
     index2++;
 }
 
-console.log( maxStr );
+console.log( maxStr ); //取最值
 
 var maxStr2;
 
